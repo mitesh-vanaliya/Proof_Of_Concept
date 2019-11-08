@@ -41,6 +41,8 @@ ext {
     gsonConverter = '2.3.0'
     loggingIntercepter = '3.8.0'
     rxAdapter = '1.0.0'
+
+    room_version = '2.2.1'
 }
 
 task clean(type: Delete) {
