@@ -2,6 +2,8 @@ package com.arinspect.proof_of_concept.application
 
 import android.app.Activity
 import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 
@@ -22,6 +24,14 @@ class ProofConceptApplication : Application() {
         @Volatile
         @JvmStatic
         lateinit var context: ProofConceptApplication
+
+        @JvmStatic
+        fun isNetworkConnected(): Boolean {
+            val connectivityManager =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+            val activeNetwork = connectivityManager?.activeNetworkInfo
+            return activeNetwork != null && activeNetwork.isConnected
+        }
     }
 
     override fun onCreate() {

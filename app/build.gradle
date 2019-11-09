@@ -19,9 +19,11 @@ android {
     buildTypes {
         debug {
             buildConfigField "String", "BASE_URL", "\"https://dl.dropboxusercontent.com/\""
+            buildConfigField "String", "DATABASE_NAME", "\"ProofOfConcept\""
         }
         release {
             buildConfigField "String", "BASE_URL", "\"https://dl.dropboxusercontent.com/\""
+            buildConfigField "String", "DATABASE_NAME", "\"ProofOfConcept\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
