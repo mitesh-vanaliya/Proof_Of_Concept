@@ -40,6 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:gravity="center"
+                style="@style/TextAppearance.Text.Bold"
                 android:text="@string/no_data_msg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

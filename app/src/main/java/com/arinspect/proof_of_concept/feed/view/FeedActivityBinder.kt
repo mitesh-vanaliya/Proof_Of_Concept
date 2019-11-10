@@ -35,6 +35,9 @@ class FeedActivityBinder : AbstractBinding<ActivityFeedBinding>(),
         setUpRecyclerView()
     }
 
+    /**
+     * Set up recyclerview and holder class
+     */
     private fun setUpRecyclerView() {
         feedsAdapter = BindingRecyclerAdapter.Builder()
             .setLayoutResId(R.layout.item_feed_layout)
@@ -47,14 +50,24 @@ class FeedActivityBinder : AbstractBinding<ActivityFeedBinding>(),
 
     }
 
+    /**
+     * Set layoutmanager into recyclerview
+     */
     fun setRecyclerLayoutManager(layoutManager: RecyclerView.LayoutManager) {
         binding?.rvFeeds?.layoutManager = layoutManager
     }
 
+    /**
+     * Show/hide swipe progress bar
+     * @param show boolean type provide swipe enable and disable
+     */
     fun showSwipeProgress(show: Boolean = true) {
         swipeProgress.set(Pair(first = true, second = show))
     }
 
+    /**
+     *
+     */
     override fun onRefresh() {
         onRefreshCallback?.invoke()
     }
@@ -67,7 +80,12 @@ class FeedActivityBinder : AbstractBinding<ActivityFeedBinding>(),
     var swipeProgress: ObservableField<Pair<Boolean?, Boolean?>> =
         ObservableField(Pair(first = true, second = false))
 
+
     companion object {
+
+        /**
+         * Binding adapter method for set image into imageview. use glide for download image from url
+         */
         @JvmStatic
         @BindingAdapter(
             "imageUrl",
@@ -90,7 +108,9 @@ class FeedActivityBinder : AbstractBinding<ActivityFeedBinding>(),
             }
         }
 
-
+        /**
+         * Binding Adapter method for setw visibility into view
+         */
         @JvmStatic
         @BindingAdapter("setvisibility", requireAll = false)
         fun setVisibility(view: View?, textString: String?) {
