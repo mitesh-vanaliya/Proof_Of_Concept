@@ -15,16 +15,29 @@ import com.arinspect.proof_of_concept.base.absActivityBuilder
 import com.arinspect.proof_of_concept.util.gone
 import com.arinspect.proof_of_concept.util.show
 
+/**
+ * [FeedsActivity] : FeedActivity class provide load feed record. Set feed list into recyclerview
+ *
+ * @author : Mitesh Vanaliya
+ * @version 1.0.0
+ * @since 11/09/2019
+ */
 class FeedsActivity : AbstractBaseActivity() {
 
     companion object {
         const val EXTRA_FLAG_CALL_API = "makeApiCall"
     }
 
+    /**
+     * Create Viewmodel object using lazy
+     */
     private val feedsDetailViewModel by lazy {
         ViewModelProviders.of(this)[FeedsViewModel::class.java]
     }
 
+    /**
+     * Create object for FeedActivityBinder
+     */
     private val feedActivityBinder by lazy {
         return@lazy FeedActivityBinder()
     }
@@ -34,7 +47,6 @@ class FeedsActivity : AbstractBaseActivity() {
     }
 
     override fun onViewReady(savedInstanceState: Bundle?) {
-
         setupRefreshCallbacks()
         observeFeeds()
         if (savedInstanceState == null) {
@@ -62,10 +74,16 @@ class FeedsActivity : AbstractBaseActivity() {
     }
 
 
+    /**
+     * get feedlist from API or localdatabase
+     */
     private fun getFeeds() {
         feedsDetailViewModel.getFeeds()
     }
 
+    /**
+     * Method provide observer live data to get updated data whenever change
+     */
     private fun observeFeeds() {
         feedsDetailViewModel.feedsLiveData.observe(this, Observer {
             when (resources?.configuration?.orientation) {

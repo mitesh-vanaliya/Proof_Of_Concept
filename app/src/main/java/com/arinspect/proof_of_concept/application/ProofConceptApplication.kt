@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate
 
 
 /**
- * [ProofConceptApplication] :
+ * [ProofConceptApplication] : Application class
  *
  * @author : Mitesh Vanaliya
  * @version 1.0.0

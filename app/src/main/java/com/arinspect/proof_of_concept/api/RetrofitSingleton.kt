@@ -16,7 +16,7 @@ import java.io.File
 import java.util.concurrent.TimeUnit
 
 /**
- * [RetrofitSingleton] :
+ * [RetrofitSingleton] : Retrofit singleton class provide singleton object for retrofit
  *
  * @author : Mitesh Vanaliya
  * @version 1.0.0
@@ -28,7 +28,6 @@ class RetrofitSingleton private constructor() {
     }
 
     companion object {
-        private const val TAG = "RetrofitSingleton"
         @JvmStatic
         fun getInstance() = HOLDER.instance
     }
@@ -36,22 +35,38 @@ class RetrofitSingleton private constructor() {
     private val httpCacheDirectory = File(ProofConceptApplication.context.cacheDir, "responses")
     private val cache = Cache(httpCacheDirectory, (10 * 1024 * 1024).toLong())
 
+    /**
+     * Create IAppWebApi object to get API
+     */
     fun provideApiService(): IAppWebApi {
         return provideRetrofit().create(IAppWebApi::class.java)
     }
 
+    /**
+     *
+     */
     private fun provideGsonConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create(provideGson())
     }
 
+    /**
+     * Create Gson class object
+     */
     private fun provideGson(): Gson {
         return GsonBuilder().setLenient().create()
     }
 
+    /**
+     *
+     */
     private fun provideRxJavaCallAdapterFactory(): RxJava2CallAdapterFactory {
         return RxJava2CallAdapterFactory.create()
     }
 
+    /**
+     * Create Okhttp object using builder pattern
+     * okhttp builder pattern add request time in second and Network intercepter
+     */
     private fun getOkHttpClient(): OkHttpClient.Builder {
         val builder = OkHttpClient.Builder()
         builder.cache(cache)
@@ -69,6 +84,9 @@ class RetrofitSingleton private constructor() {
         return builder
     }
 
+    /**
+     * Network interceptor class to add header in request and cache also
+     */
     private fun networkCacheInterceptor(): Interceptor {
         return Interceptor { chain ->
             val response = chain.proceed(chain.request())
@@ -82,6 +100,9 @@ class RetrofitSingleton private constructor() {
         }
     }
 
+    /**
+     * Create retrofit class for baseUrl, adapterfactory and other point
+     */
     private fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)

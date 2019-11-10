@@ -8,6 +8,7 @@ import com.arinspect.proof_of_concept.feed.data.FeedDao
 import com.arinspect.proof_of_concept.feed.model.FeedEntityDto
 
 /**
+ * [ProofOfConceptDb] : ProofConceptDb class is Roomdatabase class
  * @author Mitesh Vanaliya
  * @since 10/14/2019
  * @version 1.0.0

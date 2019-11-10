@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView
  *             .onBindViewHolderCallback { holder, pos, adapter -> }
  *             .build()
  *
- * @author : Nirav Joshi
+ * @author : Mitesh Vanaliya
  * @version 1.0.0
  * @since 10/15/2019
  */
@@ -163,7 +163,7 @@ class BindingRecyclerAdapter private constructor(builder: Builder) :
      *
      * Check [BindingRecyclerAdapter] for more details.
      *
-     * @author : Nirav Joshi
+     * @author : Mitesh Vanaliya
      * @version 1.0.0
      * @since 10/15/2019
      * @see [BindingRecyclerAdapter]
@@ -265,7 +265,7 @@ class BindingRecyclerAdapter private constructor(builder: Builder) :
      *
      * ViewHolder class that holds [binding] object for data-binding values from list to item view.
      *
-     * @author : Nirav Joshi
+     * @author : Mitesh Vanaliya
      * @version 1.0.0
      * @since 10/15/2019
      * @see [RecyclerView.ViewHolder]

@@ -22,7 +22,7 @@ import com.bumptech.glide.request.RequestOptions
  *
  * @author : Mitesh Vanaliya
  * @version 1.0.0
- * @since 10/14/2019
+ * @since 11/09/2019
  */
 class FeedActivityBinder() : AbstractBinding<ActivityFeedBinding>(),
     SwipeRefreshLayout.OnRefreshListener {
