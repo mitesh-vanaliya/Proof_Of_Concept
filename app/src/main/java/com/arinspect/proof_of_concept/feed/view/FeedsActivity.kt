@@ -44,6 +44,7 @@ class FeedsActivity : AbstractBaseActivity() {
 
     override fun setUpBuilder() = absActivityBuilder {
         contentView = R.layout.activity_feed
+        abstractBinding = feedActivityBinder
     }
 
     override fun onViewReady(savedInstanceState: Bundle?) {

@@ -24,7 +24,7 @@ import com.bumptech.glide.request.RequestOptions
  * @version 1.0.0
  * @since 11/09/2019
  */
-class FeedActivityBinder() : AbstractBinding<ActivityFeedBinding>(),
+class FeedActivityBinder : AbstractBinding<ActivityFeedBinding>(),
     SwipeRefreshLayout.OnRefreshListener {
 
     var feedsAdapter: BindingRecyclerAdapter? = null
