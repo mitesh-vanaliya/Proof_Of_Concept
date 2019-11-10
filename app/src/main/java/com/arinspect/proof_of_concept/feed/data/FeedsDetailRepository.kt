@@ -29,6 +29,10 @@ class FeedsDetailRepository private constructor() {
         return@lazy RemoteFeedsDataSource.getInstance()
     }
 
+    fun clearAllLocalDataBase() {
+        localDataSource.clearFeeds()
+    }
+
     fun getFeeds(onFeedsCallback: (List<FeedEntityDto>?) -> Unit) {
         if (localDataSource.getFeedCounts() == 0L) {
             remoteDataSource.getFeeds {

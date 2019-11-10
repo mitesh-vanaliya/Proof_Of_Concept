@@ -16,6 +16,11 @@ class FeedsViewModel : ViewModel() {
         }
     }
 
+    fun refreshFeeds(){
+        feedsDetailRepository.clearAllLocalDataBase()
+        getFeeds()
+    }
+
     private val feedsDetailRepository by lazy {
         return@lazy FeedsDetailRepository.getInstance()
     }
